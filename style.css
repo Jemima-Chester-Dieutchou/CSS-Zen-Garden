@@ -4,6 +4,12 @@ body{
     font-family: "Inter", sans-serif; 
     margin: 0;
     line-height:1.8;
+    background-color: #EFE3D2;
+    background-image:
+        radial-gradient(circle at 90% 5%,  rgba(228, 170, 34, 0.35), transparent 40%),
+        radial-gradient(circle at 5% 95%,  rgba(217, 119, 69, 0.30), transparent 45%),
+        radial-gradient(circle at 10% 10%, #FFFDF8 0, transparent 35%);
+    background-attachment: fixed;
 }
 
 h1{
@@ -69,6 +75,16 @@ p{
     top: -70px;
     right: -45px;
     opacity: 0.7;
+}
+.intro h1::before {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    background-color: #D9B65D;
+    margin-bottom: 24px;
+    border-radius: 4px;
+    margin: 0 auto 24px;
 }
 .intro h2 {
     font-size: 1.5rem;
@@ -141,6 +157,7 @@ p{
 .intro h2       { animation: apparition 0.9s ease 0.15s backwards; }
 .summary        { animation: apparition 0.9s ease 0.3s backwards; }
 .preamble       { animation: apparition 0.9s ease 0.45s backwards; }
+
 /* ---------- Sidebar ---------- */
 .sidebar {
     grid-column: 2;
@@ -155,28 +172,13 @@ p{
     overflow: hidden;
 }
 
-/* Soleil lumineux dans le coin */
-.sidebar::before {
-    content: "";
-    position: absolute;
-    top: -70px;
-    right: -70px;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, #FFE9A6, #E4AA22);
-    border-radius: 50%;
-    opacity: 0.55;
-    box-shadow: 0 0 60px 20px rgba(255, 215, 120, 0.35);
-    pointer-events: none;
-}
-
 .sidebar .wrapper {
     position: relative;
     display: grid;
     gap: 16px;
 }
 
-/* Les 3 blocs en cartes translucides */
+/* Die 3 Blöcke als durchscheinende Karten */
 .sidebar .wrapper > div {
     padding: 18px 20px;
     background: rgba(255, 253, 248, 0.14);
@@ -186,7 +188,7 @@ p{
     backdrop-filter: blur(8px);
 }
 
-/* Titres avec icône */
+/* Überschriften mit Icon */
 .sidebar h3 {
     display: flex;
     align-items: center;
@@ -200,7 +202,7 @@ p{
 .sidebar h3.archives::before  { content: "🗂️"; }
 .sidebar h3.resources::before { content: "🧭"; }
 
-/* Listes */
+/* Listen */
 .sidebar ul {
     list-style: none;
     margin: 0;
@@ -217,7 +219,7 @@ p{
     padding-top: 0;
 }
 
-/* Liens */
+/* Links */
 .sidebar a {
     color: #FFFDF8;
     text-decoration: none;
@@ -227,7 +229,7 @@ p{
     color: #FFE9A6;
 }
 
-/* Noms des designs et des designers */
+/* Namen der Designs und der Designer */
 .design-name {
     display: block;
     font-family: "Fraunces", serif;
@@ -245,7 +247,7 @@ p{
     text-decoration: underline;
 }
 
-/* Archives : bouton pastille */
+/* Archiv: Pillen-Button */
 .design-archives li {
     border-top: 0;
     padding: 6px 0;
@@ -273,7 +275,7 @@ p{
     transform: translateX(6px);
 }
 
-/* Ressources : icônes + glissement */
+/* Ressourcen: Icons + Gleiteffekt */
 .zen-resources li a {
     display: flex;
     align-items: center;
@@ -301,9 +303,8 @@ p{
     border: none;
     box-shadow: none;
     padding: 0;
+    counter-reset: section;
 }
-.main.supporting { counter-reset: section; }
-
 .main.supporting > div {
     counter-increment: section;
     position: relative;
@@ -321,7 +322,7 @@ p{
     pointer-events: none;
 }
 
-/* Individual editorial cards */
+/* Einzelne redaktionelle Karten */
 .main.supporting > div {
     background: #FFFDF8;
     border: 1px solid transparent;
@@ -338,17 +339,13 @@ p{
     box-shadow: 0 16px 32px rgba(48, 39, 34, 0.12);
 }
 
-/* A different accent for each section */
+/* Eine andere Akzentfarbe für jeden Abschnitt */
 .main.supporting .explanation {
     border-top: 5px solid #B95735;
 }
 
 .main.supporting .participation {
     border-top: 5px solid #D9B65D;
-}
-
-.main.supporting .benefits {
-    border-top: 5px solid #304B3D;
 }
 
 .main.supporting .requirements {
@@ -380,36 +377,7 @@ p{
     letter-spacing: -0.4px;
 }
 
-.intro a{
-    color:#f5c8b8;
-}
-.intro a:hover{
-    color:#e4aa22;
-}
 
-
-.intro h2 {
-    font-size: 1.5rem;
-    line-height: 1.4;
-    margin-bottom: 18px;
-    letter-spacing: 0.2px;
-}
-
-.intro::before {
-    content: "";
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    background: #D9B65D;
-    border-radius: 50%;
-    top: -70px;
-    right: -45px;
-    opacity: 0.7;
-}
-.sidebar ul {
-    list-style: none;
-    padding-left: 0;
-}
 @media (max-width: 800px) {
     .page-wrapper {
         grid-template-columns: 1fr;
@@ -425,20 +393,13 @@ p{
 abbr {
     text-decoration: none;
 }
-.intro h1::before {
-    content: "";
-    display: block;
-    width: 64px;
-    height: 4px;
-    background-color: #D9B65D;
-    margin-bottom: 24px;
-    border-radius: 4px;
-}
-.main.supporting .explanation   { border-top: 5px solid #B95735; }  /* terracotta */
-.main.supporting .participation { border-top: 5px solid #E4AA22; }  /* jaune moutarde */
-.main.supporting .benefits      { border-top: 5px solid #D97745; }  /* orange */
-.main.supporting .requirements  { border-top: 5px solid #8C3B1E; }  /* rouille */
-/* ---------- Feuilles d'automne ---------- */
+
+.main.supporting .explanation   { border-top: 5px solid #B95735; }  /* Terracotta */
+.main.supporting .participation { border-top: 5px solid #E4AA22; }  /* Senfgelb */
+.main.supporting .benefits      { border-top: 5px solid #D97745; }  /* Orange */
+.main.supporting .requirements  { border-top: 5px solid #8C3B1E; }  /* Rostrot */
+
+/* ---------- Herbstblätter ---------- */
 .extra1, .extra2, .extra3, .extra4, .extra5, .extra6 {
     position: fixed;
     top: 0;
@@ -449,7 +410,7 @@ abbr {
     animation-delay: var(--delai);
 }
 
-/* La feuille elle-même, dessinée en SVG, qui se balance */
+/* Das Blatt selbst, als SVG gezeichnet, schwingt hin und her */
 .extra1::before, .extra2::before, .extra3::before,
 .extra4::before, .extra5::before, .extra6::before {
     content: "";
@@ -460,12 +421,12 @@ abbr {
     animation: balance var(--balance) ease-in-out infinite alternate;
 }
 
-/* Feuilles au premier plan : moyennes, nettes */
+/* Blätter im Hintergrund: mittelgroß, scharf */
 .extra2 { left: 18%; --taille: 120px; --duree: 16s; --delai: -4s;  --balance: 3.2s; --couleur: hue-rotate(10deg);  z-index: 5; opacity: .9; }
 .extra4 { left: 55%; --taille: 150px; --duree: 19s; --delai: -11s; --balance: 4s;   --couleur: hue-rotate(-18deg); z-index: 5; opacity: .9; }
 .extra6 { left: 82%; --taille: 110px; --duree: 14s; --delai: -7s;  --balance: 2.8s; --couleur: hue-rotate(28deg) brightness(1.1); z-index: 5; opacity: .9; }
 
-/* Feuilles au fond : très grandes, floues, derrière les cartes */
+/* Blätter im Hintergrund: sehr groß, unscharf, hinter den Karten */
 .extra1 { left: 4%;  --taille: 260px; --duree: 26s; --delai: -9s;  --balance: 5s;   --couleur: blur(4px) hue-rotate(-10deg); z-index: -1; opacity: .55; }
 .extra3 { left: 40%; --taille: 320px; --duree: 32s; --delai: -20s; --balance: 6s;   --couleur: blur(6px) hue-rotate(20deg);  z-index: -1; opacity: .45; }
 .extra5 { left: 70%; --taille: 240px; --duree: 28s; --delai: -3s;  --balance: 5.5s; --couleur: blur(3px) hue-rotate(-25deg); z-index: -1; opacity: .5; }
@@ -473,6 +434,10 @@ abbr {
 @keyframes chute {
     from { transform: translateY(-30vh); }
     to   { transform: translateY(125vh); }
+}
+@keyframes apparition {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes balance {
@@ -485,7 +450,7 @@ abbr {
     .extra1::before, .extra2::before, .extra3::before,
     .extra4::before, .extra5::before, .extra6::before { animation: none; }
 }
-/* ---------- Footer en grille ---------- */
+/* ---------- Footer als Raster ---------- */
 footer {
     grid-column: 1 / -1;
     margin-top: 24px;
@@ -498,9 +463,9 @@ footer {
     gap: 14px;
 }
 
-/* Titre du footer */
+/* Titel des Footers */
 footer::before {
-    content: "Mentions & liens";
+    content: "Legal & links";
     grid-column: 1 / -1;
     font-family: "Fraunces", serif;
     font-size: 1.4rem;
@@ -510,7 +475,7 @@ footer::before {
     margin-bottom: 4px;
 }
 
-/* Tuiles */
+/* Kacheln */
 footer a {
     display: flex;
     flex-direction: column;
@@ -535,7 +500,7 @@ footer a:hover {
     color: #FFFDF8;
 }
 
-/* Descriptions sous chaque nom */
+/* Beschreibungen unter jedem Namen */
 footer a::after {
     font-family: "Inter", sans-serif;
     font-size: 0.72rem;
@@ -543,8 +508,8 @@ footer a::after {
     letter-spacing: 0.5px;
     opacity: 0.85;
 }
-.zen-validate-html::after { content: "Valider le HTML"; }
-.zen-validate-css::after  { content: "Valider le CSS"; }
-.zen-license::after       { content: "Licence"; }
-.zen-accessibility::after { content: "Accessibilité"; }
-.zen-github::after        { content: "Code source"; }
+.zen-validate-html::after { content: "Validate HTML"; }
+.zen-validate-css::after  { content: "Validate CSS"; }
+.zen-license::after       { content: "License"; }
+.zen-accessibility::after { content: "Accessibility"; }
+.zen-github::after        { content: "Source code"; }
