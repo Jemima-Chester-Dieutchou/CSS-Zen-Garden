@@ -1,36 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500&display=swap");
+
 body{
-    background-color: #F7F0E5;
-    color: #302722;
-    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height:1.8;
+    background-color: #EFE3D2;
+    background-image: radial-gradient(
+        circle at 10% 10%,
+       #FFFDF8 0,
+       transparent 35%
+);
+
 }
 h1{
     color: #b95735;
-    font-size:  2.5rem;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
     font-weight: 700;
+    font-family: "Fraunces", serif;
+    line-height: 1.1;
+    letter-spacing: -0.8px;
+    margin-bottom: 24px;
 }
 h2{
     color: #7b5a49;
     font-size: 1.4em;
     margin-bottom: 12px;
+    font-family: "Fraunces", serif;
 }
 p{
-    font-size: 1rem;
-    line-height: 1.7;
-    margin-bottom:16px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom:20px;
 }
 .intro{
     background-color:#F7F0E5 ;
+    color: #FFFDF8;
+    border-radius: 18px;
     text-align: left;
-    padding: 24px;
     grid-column: 1 / -1;
+    position: relative;
+    overflow: hidden;
+    padding: 48px 36px;
+    border-radius: 24px;
+    background: linear-gradient(
+        120deg,
+        #A9472C 0%,
+        #C65D3A 55%,
+        #D97745 100%
+    );
+    box-shadow: 0 18px 45px rgba(100, 48, 28, 0.18);
 }
 .sidebar{
     background-color: #b95735;
     padding: 20px;
     color:#FFFDF8;
     grid-column: 2;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(48, 39, 34, 0.12);
 }
 .page-wrapper {
     display: grid;
@@ -38,37 +63,118 @@ p{
     gap: 24px;
 }
 .main.supporting{
-  grid-column: 1;
-  padding: 24px;  
+  grid-column: 1;  
+  background-color: #FFFDF8;
+  border: 1px solid rgba(185, 87, 53, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(48, 39, 34, 0.08);
+  padding: 32px;
 }
-.sidebar a{
-color:#FFFDF8;
+
+.sidebar a {
+    display: inline-block;
+    color: #FFFDF8;
+    text-decoration: none;
+    line-height: 1.8;
+    border-bottom: 1px solid rgba(255, 253, 248, 0.3);
+    transition: color 0.25s ease,
+                padding-left 0.25s ease,
+                border-color 0.25s ease;
 }
-.sidebar a:hover{
-    color: #f58e6c;
-    text-decoration: underline;
+
+.sidebar a:hover {
+    color: #D9B65D;
+    padding-left: 8px;
+    border-bottom-color: #D9B65D;
 }
+.main.supporting p {
+    max-width: 72ch;
+    color: #494039;
+}
+
 .main.supporting a{
     color: #b95735;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    transition: color 0.25s ease;
 }
+
 .main.supporting a:hover {
-    color: #7B5A49;
+    color: #e4aa22;
     text-decoration: underline;
 }
 .main.supporting h3 {
     color: #B95735;
     margin-top: 28px;
     margin-bottom: 12px;
+    font-family: "Fraunces", serif;
+    font-size: 1.65rem;
+    letter-spacing: -0.4px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(185, 87, 53, 0.25);
 }
 footer {
-    border-top: 2px solid #B95735;
-    margin-top: 32px;
-    padding-top: 16px;
-    text-align: center;
+    border-top: 1px solid rgba(185, 87, 53, 0.35);
+    padding-top: 24px;
+    margin-top: 48px;
+    color: #6E5A4F;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
 }
+
 .intro a{
-    color:#b95735;
+    color:#f5c8b8;
 }
 .intro a:hover{
-    color:#7B5A49;
+    color:#e4aa22;
+}
+.intro h1,
+.intro h2 {
+    color: #FFFDF8;
+}
+
+.intro h2 {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin-bottom: 18px;
+    letter-spacing: 0.2px;
+}
+
+.intro::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: #D9B65D;
+    border-radius: 50%;
+    top: -70px;
+    right: -45px;
+    opacity: 0.7;
+}
+.sidebar ul {
+    list-style: none;
+    padding-left: 0;
+}
+@media (max-width: 800px) {
+    .page-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .intro,
+    .main.supporting,
+    .sidebar {
+        grid-column: 1;
+    }
+}
+abbr {
+    text-decoration: none;
+}
+.intro h1::before {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    background-color: #D9B65D;
+    margin-bottom: 24px;
+    border-radius: 4px;
 }
